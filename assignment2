@@ -30,7 +30,7 @@ fun convert(names: Array<String?>) {
             println("Assertion operator    -> NullPointerException: name was null")
         }
 
-        println("--------------------------------------------------")
+        
     }
 }
 
