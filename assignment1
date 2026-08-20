@@ -1,1 +1,28 @@
+fun main() {
 
+    val data = "Hi! How are you?"
+
+    var vowelCount = 0
+    var spaceCount = 0
+
+    for (char in data) {
+
+        val lower = char.lowercaseChar()
+
+        // 'when' used as an expression -> its result is assigned to 'category'
+        val category = when (lower) {
+            'a', 'e', 'i', 'o', 'u' -> "vowel"
+            ' ' -> "space"
+            else -> "other"
+        }
+
+        when (category) {
+            "vowel" -> vowelCount++
+            "space" -> spaceCount++
+        }
+    }
+
+    println("String: $data")
+    println("1. Number of vowels -> $vowelCount")
+    println("2. Number of spaces -> $spaceCount")
+}
