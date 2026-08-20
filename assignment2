@@ -1,1 +1,40 @@
+package com.pes.lib
 
+fun convert(names: Array<String?>) {
+
+    for (name in names) {
+
+        // 1. Explicit null check
+        if (name != null) {
+            println("Explicit null check   -> ${name.uppercase()}")
+        } else {
+            println("Explicit null check   -> name is null, cannot convert")
+        }
+
+        // 2. Safe call operator (?.)
+        // Returns null instead of throwing an exception if name is null
+        val safeResult: String? = name?.uppercase()
+        println("Safe call operator    -> $safeResult")
+
+        // 3. Elvis operator (?:)
+        // Provides a default value when the safe call result is null
+        val elvisResult: String = name?.uppercase() ?: "UNKNOWN"
+        println("Elvis operator        -> $elvisResult")
+
+        // 4. Assertion operator (!!)
+        // Forces a NullPointerException if name is null
+        try {
+            val assertResult = name!!.uppercase()
+            println("Assertion operator    -> $assertResult")
+        } catch (e: NullPointerException) {
+            println("Assertion operator    -> NullPointerException: name was null")
+        }
+
+        println("--------------------------------------------------")
+    }
+}
+
+fun main() {
+
+    convert(arrayOf("john", null, "merry", "robert"))
+}
